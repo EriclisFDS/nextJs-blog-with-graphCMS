@@ -17,7 +17,7 @@ const PostWidget = ({ categories, slug }) => {
   }, [slug])
 
 
-  console.log('relatedPost', relatedPosts)
+  //console.log('relatedPost', relatedPosts)
   
 
   return (
