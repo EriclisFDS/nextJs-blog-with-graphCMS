@@ -6,7 +6,7 @@ import {  Author, Categories, Comments, CommentsForm, PostDetail, PostWidget } f
 
 function PostDetails({ post }) {
   
-  // console.log( "asd", post)
+   //console.log( "asd", post.slug)
 
   return (
     <div className='container mx-auto px-10 mb-8'>
