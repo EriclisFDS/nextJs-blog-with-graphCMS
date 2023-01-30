@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
   return (
     <div className='bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8'>
       <div className='relative overflow-hidden shadow-md pb-80 mb-6'>
-        {/* <img 
+        <img 
           src={post.featuredImage.url}
           alt={post.title}
           className={`
@@ -21,7 +21,7 @@ const PostCard = ({ post }) => {
             rounded-t-lg 
             lg:rounded-lg
           `}
-        /> */}
+        />
       </div>
       <h1 className={`
             transition 
@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
               mr-8
         `}>
           <img 
-            src="" 
+            src={post.author.photo.url} 
             alt={post.author.name} 
             height="30px"
             width="30px"

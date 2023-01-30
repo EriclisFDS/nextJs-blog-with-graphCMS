@@ -29,7 +29,7 @@ const PostWidget = ({ categories, slug }) => {
         <div key={post.title } className='flex items-center w-full mb-4' >
           <div className='w-16 flex-none'>
             <img 
-              // src={post.featuredImage.url} 
+              src={post.featuredImage.url} 
               alt={post.title}
               height='60px' 
               width='60px'
