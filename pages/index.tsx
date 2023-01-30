@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head'
 import { Key } from 'react';
 import { PostCard, Categories, PostWidget } from '../components';
@@ -10,7 +9,7 @@ import { getPosts } from '../services'
 //   {title: 'React with Tailwind', exerpt: 'Learn React with Tailwind'}
 // ]
 
-const Home: NextPage = ({ posts }: AppProps) => {
+const Home: NextPage = ({ posts }:any) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
