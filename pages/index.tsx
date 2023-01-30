@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
+import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head'
+import { Key } from 'react';
 import { PostCard, Categories, PostWidget } from '../components';
 import { getPosts } from '../services'
 
@@ -8,7 +10,7 @@ import { getPosts } from '../services'
 //   {title: 'React with Tailwind', exerpt: 'Learn React with Tailwind'}
 // ]
 
-const Home: NextPage = ( posts ) => {
+const Home: NextPage = ({ posts }: AppProps) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -17,13 +19,13 @@ const Home: NextPage = ( posts ) => {
       </Head>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
         <div className='lg:col-span-8 col-span-1'>
-          {posts.map((post, index) => (
+          {posts.map((post: { node: { title: Key | null | undefined; }; }, index: any) => (
             <PostCard post={post.node} key={post.node.title} />
-          ))}
+            ))}
         </div>
         <div className='lg:col-span-4 col-span-1'>
           <div className='lg:sticky relative top-8'>
-            <PostWidget />
+            <PostWidget categories={undefined} slug={undefined} />
             <Categories />
           </div>
         </div>
@@ -32,8 +34,6 @@ const Home: NextPage = ( posts ) => {
   )
 }
 
-export default Home
-
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
 
@@ -41,3 +41,5 @@ export async function getStaticProps() {
     props: { posts }
   }
 }
+export default Home
+
