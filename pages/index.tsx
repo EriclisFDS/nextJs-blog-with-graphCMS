@@ -8,7 +8,7 @@ import { getPosts } from '../services'
 //   {title: 'React with Tailwind', exerpt: 'Learn React with Tailwind'}
 // ]
 
-const Home: NextPage = ({ posts }) => {
+const Home: NextPage = ( posts ) => {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
