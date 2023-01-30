@@ -38,6 +38,42 @@ export const getPosts = async () => {
   return result.postsConnection.edges
 }
 
+export const getPostsPerCategory = async ( slug ) => {
+  const query = gql`
+    query Assets( $slug: String! ) {
+      postsConnection(where: {categories_some: {slug: $slug}}) {
+        edges {
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              slug
+              name
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const result = await request(graphqlAPI, query, { slug })
+
+  return result.postsConnection.edges
+}
+
 export const getPostsDetails = async ( slug ) => {
   const query = gql`
     query GetPostsDetails( $slug: String! ) {
